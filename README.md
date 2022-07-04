@@ -2,7 +2,7 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
-* [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://github.com/nereusx/md2roff/issues/4)
+* [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://www.cve.org/CVERecord?id=CVE-2022-34913)
 * [PicoC Version v3.2.2 Null Pointer Dereference](https://gitlab.com/zsaleeba/picoc/-/issues/47)
 * [EZGif Server Side Request Forgery](https://halcyonic.net/zero-day-research-ezgif-server-side-request-forgery/)
 * [Mechanical Keyboard Finder Version 4.31 Cross Site Scripting](https://halcyonic.net/2020-01-23-mk-zero-day/)
