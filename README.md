@@ -2,6 +2,7 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+* [SimpleNetwork TCP Server Double Free](https://github.com/kashimAstro/SimpleNetwork/issues/22)
 * [Crash in N-Prolog Version 1.90](https://github.com/sasagawa888/nprolog/issues/74)
 * [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://www.cve.org/CVERecord?id=CVE-2022-34913)
 * [PicoC Version v3.2.2 Null Pointer Dereference](https://gitlab.com/zsaleeba/picoc/-/issues/47)
