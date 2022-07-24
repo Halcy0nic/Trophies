@@ -2,6 +2,7 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+* [png2webp Out of Bounds Write](https://github.com/landfillbaby/png2webp/issues/3)
 * [SimpleNetwork TCP Server Double Free](https://github.com/kashimAstro/SimpleNetwork/issues/22)
 * [Crash in N-Prolog Version 1.90](https://github.com/sasagawa888/nprolog/issues/74)
 * [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://www.cve.org/CVERecord?id=CVE-2022-34913)
