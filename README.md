@@ -2,6 +2,8 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+* [LCI v0.10.5 Null Pointer Dereference](https://github.com/justinmeza/lci/issues/79)
+* [LCI v0.10.5 Out of Bounds Read](https://github.com/justinmeza/lci/issues/79)
 * [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
 * [html2xhtml v1.3 Out-Of-Bounds read (CVE-2022-44311)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44311)
 * [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceInteger function in expression.c (CVE-2022-44312)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44313)
