@@ -2,6 +2,7 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+* [Shibatch Sample Rate Converter (SSRC) Divide By Zero Denial of Service](https://github.com/shibatch/SSRC/issues/9)
 * [LCI v0.10.5 Null Pointer Dereference](https://github.com/justinmeza/lci/issues/79)
 * [LCI v0.10.5 Out of Bounds Read](https://github.com/justinmeza/lci/issues/79)
 * [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
