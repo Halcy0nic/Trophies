@@ -2,6 +2,23 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+* [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds write in int forth_run(forth_t *o) libforth/libforth.c, line 2725](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2721](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2716](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2665](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2362](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2730](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Invalid free in int forth_run(forth_t *o) libforth/libforth.c, line 2750](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static void print_stack(forth_t *o, FILE *out, forth_cell_t *S, forth_cell_t f) at libforth.c, line 1481](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int forth_get_char(forth_t *o) at libforth.c, line 1091](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds write in static forth_cell_t compile(forth_t *o, forth_cell_t code, const char *str, forth_cell_t compiling, forth_cell_t hide) at libforth.c, line 1241](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
 * [Shibatch Sample Rate Converter (SSRC) Divide By Zero Denial of Service](https://github.com/shibatch/SSRC/issues/9)
 * [LCI v0.10.5 Null Pointer Dereference](https://github.com/justinmeza/lci/issues/79)
 * [LCI v0.10.5 Out of Bounds Read](https://github.com/justinmeza/lci/issues/79)
