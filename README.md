@@ -2,6 +2,30 @@
 
 Trophy list of zero-day vulnerabilities discovered:
 
+## CVEs
+
+
+* [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
+* [html2xhtml v1.3 Out-Of-Bounds read (CVE-2022-44311)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44311)
+* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceInteger function in expression.c (CVE-2022-44312)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44313)
+* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceUnsignedInteger function in expression.c (CVE-2022-44313)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44313)
+* [PicoC v3.2.2 Heap Overflow in the StringStrncpy function in cstdlib/string.c (CVE-2022-44314)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44314)
+* [PicoC v3.2.2 Heap Overflow in the ExpressionAssign function in expression.c (CVE-2022-44315)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44315)
+* [PicoC v3.2.2 Heap Overflow in the LexGetStringConstant function in lex.c (CVE-2022-44316)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44316)
+* [PicoC v3.2.2 Heap Overflow in the StdioOutPutc function in cstdlib/stdio.c (CVE-2022-44317)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44317)
+* [PicoC v3.2.2 Heap Overflow in the StringStrcat function in cstdlib/string.c (CVE-2022-44318)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44318)
+* [PicoC v3.2.2 Heap Overflow in the StdioBasePrintf function in cstdlib/string.c (CVE-2022-44319)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44319)
+* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceFP function in expression.c (CVE-2022-44320)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44320)
+* [PicoC v3.2.2 Heap Overflow in the LexSkipComment function in lex.c (CVE-2022-44321)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44321)
+* [md2roff Version 1.9 Buffer Overflow (CVE-2022-41220)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41220)
+* [png2webp Version 1.0.4 Out of Bounds Write (CVE-2022-36752)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36752)
+* [SimpleNetwork TCP Server Double Free (CVE-2022-36234)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36234)
+* [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34913)
+* [PicoC Version v3.2.2 Null Pointer Dereference (CVE-2022-34556)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34556)
+* [Rockwell Automation MicroLogix 1400 and CompactLogix 5370 Controllers Open Redirect (ICSA-19-113-01)](https://www.cisa.gov/uscert/ics/advisories/ICSA-19-113-01)
+
+## CVEs in process
+
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
@@ -19,26 +43,17 @@ Trophy list of zero-day vulnerabilities discovered:
 * [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
+* [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
+* [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
+* [N-Prolog v1.94 Stack exhaustion in deref() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
+* [N-Prolog v1.94 Null pointer dereference in prove() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
+* [N-Prolog v1.94 Null pointer dereference in b_consult() at builtin.c](https://github.com/sasagawa888/nprolog/issues/78)
+* [N-Prolog v1.94 Out-of-bounds read in o_define() at builtin.c](https://github.com/sasagawa888/nprolog/issues/78)
+
+## Discovered Vulnerabilities
+
 * [Shibatch Sample Rate Converter (SSRC) Divide By Zero Denial of Service](https://github.com/shibatch/SSRC/issues/9)
 * [LCI v0.10.5 Null Pointer Dereference](https://github.com/justinmeza/lci/issues/79)
 * [LCI v0.10.5 Out of Bounds Read](https://github.com/justinmeza/lci/issues/79)
-* [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
-* [html2xhtml v1.3 Out-Of-Bounds read (CVE-2022-44311)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44311)
-* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceInteger function in expression.c (CVE-2022-44312)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44313)
-* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceUnsignedInteger function in expression.c (CVE-2022-44313)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44313)
-* [PicoC v3.2.2 Heap Overflow in the StringStrncpy function in cstdlib/string.c (CVE-2022-44314)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44314)
-* [PicoC v3.2.2 Heap Overflow in the ExpressionAssign function in expression.c (CVE-2022-44315)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44315)
-* [PicoC v3.2.2 Heap Overflow in the LexGetStringConstant function in lex.c (CVE-2022-44316)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44316)
-* [PicoC v3.2.2 Heap Overflow in the StdioOutPutc function in cstdlib/stdio.c (CVE-2022-44317)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44317)
-* [PicoC v3.2.2 Heap Overflow in the StringStrcat function in cstdlib/string.c (CVE-2022-44318)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44318)
-* [PicoC v3.2.2 Heap Overflow in the StdioBasePrintf function in cstdlib/string.c (CVE-2022-44319)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44319)
-* [PicoC v3.2.2 Heap Overflow in the ExpressionCoerceFP function in expression.c (CVE-2022-44320)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44320)
-* [PicoC v3.2.2 Heap Overflow in the LexSkipComment function in lex.c (CVE-2022-44321)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44321)
-* [md2roff Version 1.9 Buffer Overflow (CVE-2022-41220)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41220)
-* [png2webp Version 1.0.4 Out of Bounds Write (CVE-2022-36752)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36752)
-* [SimpleNetwork TCP Server Double Free (CVE-2022-36234)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36234)
-* [Crash in N-Prolog Version 1.90](https://github.com/sasagawa888/nprolog/issues/74)
-* [md2roff Version 1.7 Buffer Overflow (CVE-2022-34913)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34913)
-* [PicoC Version v3.2.2 Null Pointer Dereference (CVE-2022-34556)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34556)
 * [Mechanical Keyboard Finder Version 4.31 Cross Site Scripting](https://halcyonic.net/2020-01-23-mk-zero-day/)
-* [Rockwell Automation MicroLogix 1400 and CompactLogix 5370 Controllers Open Redirect (ICSA-19-113-01)](https://www.cisa.gov/uscert/ics/advisories/ICSA-19-113-01)
+* [Crash in N-Prolog Version 1.90](https://github.com/sasagawa888/nprolog/issues/74)
