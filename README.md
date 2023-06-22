@@ -1,6 +1,8 @@
 # Trophies
 
-Trophy list of zero-day vulnerabilities discovered:
+Trophy list of zero-day vulnerabilities discovered
+
+![Halcyonic Trophy](./Halcyonic-Research-Trophy.png)
 
 ## CVEs
 
