@@ -45,16 +45,16 @@ Trophy list of zero-day vulnerabilities discovered
 * [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
+
+## Discovered Vulnerabilities
+
 * [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Stack exhaustion in deref() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Null pointer dereference in prove() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Null pointer dereference in b_consult() at builtin.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in o_define() at builtin.c](https://github.com/sasagawa888/nprolog/issues/78)
-
-## Discovered Vulnerabilities
-
-* [Shibatch Sample Rate Converter (SSRC) Divide By Zero Denial of Service](https://github.com/shibatch/SSRC/issues/9)
+* [Shibatch Sample Rate Converter (SSRC) Divide By Zero](https://github.com/shibatch/SSRC/issues/9)
 * [LCI v0.10.5 Null Pointer Dereference](https://github.com/justinmeza/lci/issues/79)
 * [LCI v0.10.5 Out of Bounds Read](https://github.com/justinmeza/lci/issues/79)
 * [Mechanical Keyboard Finder Version 4.31 Cross Site Scripting](https://halcyonic.net/2020-01-23-mk-zero-day/)
