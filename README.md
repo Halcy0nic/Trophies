@@ -6,6 +6,7 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [async-sockets-cpp stack buffer overflow (CVE-2023-38632)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38632)
 * [xHTTP Double Free in close_connection at xhttp.c (CVE-2023-38434)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38434)
 * [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
 * [html2xhtml v1.3 Out-Of-Bounds read (CVE-2022-44311)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44311)
