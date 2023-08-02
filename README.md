@@ -6,7 +6,7 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
-* [async-sockets-cpp stack buffer overflow (CVE-2023-38632)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38632)
+* [async-sockets-cpp v0.3.1 stack buffer overflow in tcpsocket.hpp (CVE-2023-38632)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38632)
 * [xHTTP Double Free in close_connection at xhttp.c (CVE-2023-38434)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38434)
 * [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
 * [html2xhtml v1.3 Out-Of-Bounds read (CVE-2022-44311)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44311)
@@ -47,6 +47,7 @@ Trophy list of zero-day vulnerabilities discovered
 * [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
 * [SimpleNetwork TCP Server Global Buffer Overflow](https://github.com/kashimAstro/SimpleNetwork/issues/23)
+* [async-sockets-cpp v0.3.1 off-by-one stack buffer overflow in udpsocket.hpp](https://github.com/eminfedar/async-sockets-cpp/issues/32)
 
 ## Discovered Vulnerabilities
 
