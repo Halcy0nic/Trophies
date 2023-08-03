@@ -27,7 +27,8 @@ Trophy list of zero-day vulnerabilities discovered
 * [PicoC Version v3.2.2 Null Pointer Dereference (CVE-2022-34556)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34556)
 * [Rockwell Automation MicroLogix 1400 and CompactLogix 5370 Controllers Open Redirect (ICSA-19-113-01)](https://www.cisa.gov/uscert/ics/advisories/ICSA-19-113-01)
 
-## CVEs in process
+
+## Discovered Vulnerabilities
 
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
@@ -48,9 +49,6 @@ Trophy list of zero-day vulnerabilities discovered
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
 * [SimpleNetwork TCP Server Global Buffer Overflow](https://github.com/kashimAstro/SimpleNetwork/issues/23)
 * [async-sockets-cpp v0.3.1 off-by-one stack buffer overflow in udpsocket.hpp](https://github.com/eminfedar/async-sockets-cpp/issues/32)
-
-## Discovered Vulnerabilities
-
 * [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Stack exhaustion in deref() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
