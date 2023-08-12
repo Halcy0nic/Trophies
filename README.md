@@ -30,6 +30,8 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
+* [Libboron 2.0.8 Heap buffer overflow in ur_parseBlockI at i_parse_blk.c](https://github.com/0branch/boron/issues/3)
+* [Libboron 2.0.8 Heap buffer overflow in ur_strInitUtf8 at string.c](https://github.com/0branch/boron/issues/3)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
