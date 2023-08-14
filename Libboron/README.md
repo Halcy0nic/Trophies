@@ -572,6 +572,3 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
 ### Mitigation
 
 For both of these heap overflows a check on the size of the data being copied over to the heap should do the trick.  
-
-Thanks!
-Halcy0nic
