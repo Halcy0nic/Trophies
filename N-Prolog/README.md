@@ -534,4 +534,16 @@ SUMMARY: AddressSanitizer: SEGV (/dev/shm/nprolog/npl+0x4fd5a) in car
 ==3773508==ABORTING
 
 ```
+# Crash in SET_CAR in version 1.90
 
+## Reproduction
+
+Files for reproduction:
+
+[1.90-crashes.zip](https://github.com/Halcy0nic/Trophies/files/12330851/1.90-crashes.zip)
+
+
+## Executing NPL
+```
+./npl -s ./crash1
+ ```
