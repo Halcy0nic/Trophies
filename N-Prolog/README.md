@@ -1,4 +1,26 @@
-N-Prolog v 1.94 contains multiple memory corruption issues at various locations. 
+# CVE-2022-4334
+
+N-Prolog v1.91 was discovered to contain a global buffer overflow vulnerability in the function gettoken() at Main.c. 
+
+## Makefile
+```
+CC   = gcc
+LIBS = -lm -ldl -fsanitize=address
+
+
+LIBSRASPI = -lm -ldl -lwiringPi -fsanitize=address
+INCS =  
+CFLAGS = $(INCS) -Wall -O3 -fsanitize=address
+DEST = /usr/local/bin
+```
+
+## Comiplation and Execution
+```
+$ make
+$ ./npl -s CVE-2022-4334
+```
+
+# N-Prolog v 1.94 contains multiple memory corruption issues at various locations. 
 
 ### Note: Here is the Makefile I used to compile npl with address sanitizer for debugging
 ```
