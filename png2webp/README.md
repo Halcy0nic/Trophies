@@ -92,19 +92,6 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
 ==222970==ABORTING
 
 ```
-
-## Vulnerable code in the function w2p():
-```
-  if(l < 12
-#ifdef SSIZE_MAX
-    || l - 12 > SSIZE_MAX
-#endif
-  ) {
-    PF("ERROR reading %s: %s", IP, k[2]);
-    goto w2p_close;
-  }
-```
-
 ## References
 * https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36752
 * https://cwe.mitre.org/data/definitions/787.html
