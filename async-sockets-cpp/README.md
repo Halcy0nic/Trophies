@@ -1,4 +1,4 @@
-# Off-by-one overflow in static void ReceiveFrom(UDPSocket* udpSocket)
+# (CVE-2023-40296) Off-by-one overflow in static void ReceiveFrom(UDPSocket* udpSocket)
 
 async-sockets-cpp (through 0.3.1) contains an off-by-one buffer overflow vulnerability in static void ReceiveFrom(UDPSocket* udpSocket) at udpsocket.hpp, around lines 160-167.  The buffer overflow affects all corresponding UDP servers.  The remote buffer overflow can be triggered by connecting to a UDP socket and sending a large buffer of bytes.
 
