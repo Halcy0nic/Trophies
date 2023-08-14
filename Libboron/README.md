@@ -12,7 +12,7 @@ cd boron
 sudo make install && sudo ldconfig
 ```
 
-## CVE-2023-40294- Heap buffer overflow in ur_parseBlockI at i_parse_blk.c:
+## (CVE-2023-40294) Heap buffer overflow in ur_parseBlockI at i_parse_blk.c:
 
 https://github.com/0branch/boron/blob/e98ed6cbc7911cf31a6e4ac8a0b00fd7c224e807/urlan/i_parse_blk.c#L21
 
@@ -301,7 +301,7 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
 
 ```
 
-## CVE-2023-40295- Heap buffer overflow in ur_strInitUtf8 at string.c 
+## (CVE-2023-40295) Heap buffer overflow in ur_strInitUtf8 at string.c 
 
 https://github.com/0branch/boron/blob/e98ed6cbc7911cf31a6e4ac8a0b00fd7c224e807/urlan/string.c#L343
 
