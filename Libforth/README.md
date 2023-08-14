@@ -6,6 +6,7 @@ $ forth [name of reproduction file]
 
 ### Zip archive with reproduction files:
 
+[crash.zip](https://github.com/Halcy0nic/Trophies/files/12330768/crash.zip)
 
 
 ### After triaging all of the crashes, I can verify that there are 17 separate and unique issues at the following locations:
