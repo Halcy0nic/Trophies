@@ -6,6 +6,9 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [Libboron 2.0.8 Heap buffer overflow in ur_parseBlockI at i_parse_blk.c (CVE-2023-40294)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40294)
+* [Libboron 2.0.8 Heap buffer overflow in ur_strInitUtf8 at string.c (CVE-2023-40295)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40295)
+* [async-sockets-cpp v0.3.1 off-by-one stack buffer overflow in udpsocket.hpp (CVE-2023-40296)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40296)
 * [async-sockets-cpp v0.3.1 stack buffer overflow in tcpsocket.hpp (CVE-2023-38632)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38632)
 * [xHTTP Double Free in close_connection at xhttp.c (CVE-2023-38434)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38434)
 * [Global Buffer Overflow in N-Prolog Version 1.91 (CVE-2022-43343)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43343)
@@ -30,8 +33,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [Libboron 2.0.8 Heap buffer overflow in ur_parseBlockI at i_parse_blk.c](https://github.com/0branch/boron/issues/3)
-* [Libboron 2.0.8 Heap buffer overflow in ur_strInitUtf8 at string.c](https://github.com/0branch/boron/issues/3)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
@@ -50,7 +51,6 @@ Trophy list of zero-day vulnerabilities discovered
 * [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
 * [SimpleNetwork TCP Server Global Buffer Overflow](https://github.com/kashimAstro/SimpleNetwork/issues/23)
-* [async-sockets-cpp v0.3.1 off-by-one stack buffer overflow in udpsocket.hpp](https://github.com/eminfedar/async-sockets-cpp/issues/32)
 * [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Stack exhaustion in deref() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
