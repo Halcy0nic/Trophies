@@ -33,6 +33,8 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
+* [ehttp commit 716ff7a Use-after-free in read_func(void*) at epoll_socket.cpp](https://github.com/hongliuliao/ehttp/issues/38)
+* [ehttp commit 716ff7a Out-of-bounds-read in void _log at simple_log.cpp](https://github.com/hongliuliao/ehttp/issues/38)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
