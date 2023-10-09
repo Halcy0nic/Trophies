@@ -29,7 +29,7 @@ GET /hello/hello/hello/hello/hello/hello/hello/hello/hello/hello/hello/hello/hel
 
 I compiled and executed the examples from the instructions with address sanitizer to help debug the exact location of the out-of-bounds-read:
 
-#### Makefile modifications
+### Makefile modifications
 ```
 CXXFLAGS += -g -Wall -fsanitize=address
 LDFLAGS += -pthread -fsanitize=address
@@ -61,7 +61,7 @@ sock.close()
 $ python3 poc.py
 ```
 
-#### Address Sanitizer  Output
+### Address Sanitizer  Output
 ```
 ==2308883==ERROR: AddressSanitizer: dynamic-stack-buffer-overflow on address 0x7fdc638f3ce0 at pc 0x7fdc6889109c bp 0x7fdc638f2040 sp 0x7fdc638f1800
 READ of size 4097 at 0x7fdc638f3ce0 thread T3                              
@@ -130,7 +130,7 @@ Thread T1 created by T0 here:
 ==2308883==ABORTING
 ```
 
-#### Mitigation
+### Mitigation
 
 Update ehttp to at least commit 716ff7a.
 
@@ -155,13 +155,13 @@ Update ehttp to at least commit 716ff7a.
 
 Similar to above, I compiled and executed the examples from the instructions with address sanitizer to help debug the exact location of the use-after-free bug:
 
-#### Makefile modifications
+### Makefile modifications
 ```
 CXXFLAGS += -g -Wall -fsanitize=address
 LDFLAGS += -pthread -fsanitize=address
 ```
 
-#### Compilation
+### Compilation
 ```
  make && make test && ./output/test/issue5_server 1234
 ```
@@ -184,7 +184,7 @@ https://github.com/Halcy0nic/Trophies/assets/42481692/ef1cab24-0188-418e-94ef-23
 
 
 
-#### Address Sanitizer Output
+### Address Sanitizer Output
 
 ```
 
@@ -263,7 +263,7 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
 ==131898==ABORTING                                
 ```
 
-#### Mitigation
+### Mitigation
 
 Update ehttp to at least commit 716ff7a.
 
