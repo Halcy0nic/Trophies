@@ -1,6 +1,6 @@
 # Overview
 
-When executing some fuzz tests I discovered a few bugs in ehttp at the following locations:
+When executing some fuzz tests I discovered a few bugs in ehttp (up to commit 716ff7a) at the following locations:
 
 * Out-of-bounds-read in void _log at simple_log.cpp:221
 * Use-after-free in read_func(void*) at epoll_socket.cpp:234
