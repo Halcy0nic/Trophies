@@ -6,6 +6,7 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [MicroHttpServer Remote Buffer Overflow in uint8_t _ReadStaticFiles(HTTPReqMessage *req, HTTPResMessage *res) at lib/middleware.c (CVE-2023-50965)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50965)
 * [Liblisp Out of Bounds Read vulnerability in unsigned get_length(lisp_cell_t * x) at eval.c (CVE-2023-48025)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48025)
 * [Liblisp Use-after-free in void hash_destroy(hash_table_t *h) at hash.c (CVE-2023-48024)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48024)
 * [Libboron 2.0.8 Heap buffer overflow in ur_parseBlockI at i_parse_blk.c (CVE-2023-40294)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40294)
