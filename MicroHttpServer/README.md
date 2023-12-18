@@ -1,4 +1,4 @@
-After executing my fuzz tests, I discovered a remote stack buffer overflow in the C version of MicroHttpServer in the function uint8_t _ReadStaticFiles(HTTPReqMessage *req, HTTPResMessage *res) at lib/middleware.c, line 67:
+After executing my fuzz tests, I discovered a remote stack buffer overflow in the C version of MicroHttpServer through commit 4398570 in the function uint8_t _ReadStaticFiles(HTTPReqMessage *req, HTTPResMessage *res) at lib/middleware.c, line 67:
 
 ```
 memcpy(path + strlen(STATIC_FILE_FOLDER), uri, strlen(uri));
