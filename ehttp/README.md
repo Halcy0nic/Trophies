@@ -2,10 +2,10 @@
 
 When executing some fuzz tests I discovered a few bugs in ehttp (up to commit 716ff7a) at the following locations:
 
-* Out-of-bounds-read in void _log at simple_log.cpp:221
-* Use-after-free in read_func(void*) at epoll_socket.cpp:234
+* Out-of-bounds-read in void _log at simple_log.cpp:221 (CVE-2023-52267)
+* Use-after-free in read_func(void*) at epoll_socket.cpp:234 (CVE-2023-52266)
 
-## Out-of-bounds-read in void _log at simple_log.cpp:221 when sending a malformed HTTP method, large url, or large HTTP header value to the server 
+## Out-of-bounds-read (CVE-2023-52267) in void _log at simple_log.cpp:221 when sending a malformed HTTP method, large url, or large HTTP header value to the server 
 
 ```
  void _log(const char *format, va_list ap) { 
@@ -138,7 +138,7 @@ Update ehttp to at least commit 716ff7a.
 ---
 
 
-## Heap use-after-free in read_func(void*) at epoll_socket.cpp:234
+## Heap use-after-free (CVE-2023-52266) in read_func(void*) at epoll_socket.cpp:234
 
 ```
  void read_func(void *data) { 
