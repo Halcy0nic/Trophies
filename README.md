@@ -6,6 +6,8 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [ehttp commit 716ff7a Use-after-free in read_func(void*) at epoll_socket.cpp (CVE-2023-52266)](https://www.cve.org/CVERecord?id=CVE-2023-52266)
+* [ehttp commit 716ff7a Out-of-bounds-read in void _log at simple_log.cpp (CVE-2023-52267)](https://www.cve.org/CVERecord?id=CVE-2023-52267)
 * [MicroHTTPServer off-by-one global buffer overflow in _ParseHeader at lib/server.c (CVE-2023-51771)](https://www.cve.org/CVERecord?id=CVE-2023-51771)
 * [MicroHttpServer Remote Buffer Overflow in uint8_t _ReadStaticFiles(HTTPReqMessage *req, HTTPResMessage *res) at lib/middleware.c (CVE-2023-50965)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50965)
 * [Liblisp Out of Bounds Read vulnerability in unsigned get_length(lisp_cell_t * x) at eval.c (CVE-2023-48025)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48025)
@@ -37,8 +39,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [ehttp commit 716ff7a Use-after-free in read_func(void*) at epoll_socket.cpp](https://github.com/hongliuliao/ehttp/issues/38)
-* [ehttp commit 716ff7a Out-of-bounds-read in void _log at simple_log.cpp](https://github.com/hongliuliao/ehttp/issues/38)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
