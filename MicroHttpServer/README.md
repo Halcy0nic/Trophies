@@ -299,7 +299,7 @@ for(; n>1; i++) {
 
 ### References
 
-* 
+* [CVE-2023-50965](https://nvd.nist.gov/vuln/detail/CVE-2023-50965)
 * [CVE-2023-51771](https://www.cve.org/CVERecord?id=CVE-2023-51771)
 * [CWE-193 Off-by-one Error](https://cwe.mitre.org/data/definitions/193.html)
 * [Buffer Overflow (CWE-121)](https://cwe.mitre.org/data/definitions/121.html)
