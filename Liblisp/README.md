@@ -26,6 +26,8 @@ There exist a use-after-free bug in void hash_destroy(hash_table_t *h) at hash.c
  			free(prev); 
 ```
 
+NOTE: For an in-depth walkthrough on this vulnerability, read [this article](https://halcyonic.net/zero-day-research-cve-2023-48024-and-cve-2023-48025/) on our offical site.
+
 ### Address Sanitizer Output
 ```
 =================================================================
@@ -94,6 +96,9 @@ A potential fix for this would be to set the pointer 'hash_table_t *h' to null a
 
 There exist an out-of-bounds read in unsigned get_length(lisp_cell_t * x) at eval.c, line 272.  The OOB read comes from the statement 'return (uintptr_t)(x->p[1].v);' when processing a malformed symbol.
 
+NOTE: For an in-depth walkthrough on this vulnerability, read [this article](https://halcyonic.net/zero-day-research-cve-2023-48024-and-cve-2023-48025/) on our offical site.
+
+
 #### Source Code
 
 ```
@@ -160,8 +165,8 @@ A potential fix for this would be to add check ensuring 'x->p[1].v' is within th
 
 # References
 
+* https://halcyonic.net/zero-day-research-cve-2023-48024-and-cve-2023-48025/
 * https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48024
 * https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48025
 
-@Halcy0nic
 

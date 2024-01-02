@@ -2,6 +2,7 @@
 
 md2roff 1.9 suffers from a stack-based buffer overflow via a Markdown file containing a large number of consecutive characters to be processed. 
 
+NOTE: For an in-depth walkthrough on this vulnerability, read [this article](https://halcyonic.net/zero-day-research-cve-2022-41220-md2roff-version-1-9-buffer-overflow/) on our offical site.
 
 ## Replication
 

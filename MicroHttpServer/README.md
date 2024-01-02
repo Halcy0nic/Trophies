@@ -9,6 +9,7 @@ memcpy(path + strlen(STATIC_FILE_FOLDER), uri, strlen(uri));
 
 Any server or embedded application that utilizes MicroHttpServer is potentially at risk of remote code execution.  I've included reproduction steps in the following sections.
 
+NOTE: For an in-depth walkthrough on this vulnerability, read [this article](https://halcyonic.net/zero-day-research-cve-2023-50965-microhttpserver-remote-buffer-overflow/) on our offical site.
 
 ### Makefile Modifications
 
@@ -159,6 +160,7 @@ for(; n>1; i++) {
 
 The overflow happens at roughly 15330 bytes in the request URI when reading from the network socket.  Similar to [issue 5](https://github.com/starnight/MicroHttpServer/issues/5), any server or embedded application that utilizes MicroHttpServer is potentially at risk of a Denial of Service or remote code execution, depending on the implementation.  I've included reproduction steps in the following sections.
 
+NOTE: For an in-depth walkthrough on this vulnerability, read [this article](https://halcyonic.net/zero-day-research-cve-2023-51771-microhttpserver-off-by-one-global-buffer-overflow/) on our offical site.
 
 ### Makefile Modifications
 
@@ -299,6 +301,8 @@ for(; n>1; i++) {
 
 ### References
 
+* [Zero-Day Research: CVE-2023-51771 MicroHTTPServer Off-By-One Global Buffer Overflow](https://halcyonic.net/zero-day-research-cve-2023-51771-microhttpserver-off-by-one-global-buffer-overflow/)
+* [Zero-Day Research: CVE-2023-50965 MicroHttpServer Remote Buffer Overflow](https://halcyonic.net/zero-day-research-cve-2023-50965-microhttpserver-remote-buffer-overflow/)
 * [CVE-2023-50965](https://nvd.nist.gov/vuln/detail/CVE-2023-50965)
 * [CVE-2023-51771](https://www.cve.org/CVERecord?id=CVE-2023-51771)
 * [CWE-193 Off-by-one Error](https://cwe.mitre.org/data/definitions/193.html)
