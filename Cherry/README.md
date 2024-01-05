@@ -149,4 +149,4 @@ sscanf(buf, "%5000s %300s %300s", method, uri, version); // for example, GET / H
 * https://cwe.mitre.org/data/definitions/121.html
 * https://owasp.org/www-community/vulnerabilities/Buffer_Overflow
 * https://github.com/google/sanitizers/wiki/AddressSanitizer
-
+* https://www.cve.org/CVERecord?id=CVE-2024-22086
