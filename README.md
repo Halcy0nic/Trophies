@@ -6,9 +6,9 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
-* [Cherry HTTP server remote stack buffer overflow vulnerability in handle_request() at http.c (CVE-2024-22086)](https://github.com/hayyp/cherry/issues/1)
-* [Pico HTTP server remote stack buffer overflow in void route() at main.c (CVE-2024-22087)](https://github.com/foxweb/pico/issues/31)
-* [Lotos HTTP server use-after-free in static inline size_t buffer_avail(const buffer_t *pb) at buffer.h (CVE-2024-22088)](https://github.com/chendotjs/lotos/issues/7)
+* [Cherry HTTP server remote stack buffer overflow vulnerability in handle_request() at http.c (CVE-2024-22086)](https://www.cve.org/CVERecord?id=CVE-2024-22086)
+* [Pico HTTP server remote stack buffer overflow in void route() at main.c (CVE-2024-22087)](https://www.cve.org/CVERecord?id=CVE-2024-22087)
+* [Lotos HTTP server use-after-free in static inline size_t buffer_avail(const buffer_t *pb) at buffer.h (CVE-2024-22088)](https://www.cve.org/CVERecord?id=CVE-2024-22088)
 * [ehttp commit 716ff7a Use-after-free in read_func(void*) at epoll_socket.cpp (CVE-2023-52266)](https://www.cve.org/CVERecord?id=CVE-2023-52266)
 * [ehttp commit 716ff7a Out-of-bounds-read in void _log at simple_log.cpp (CVE-2023-52267)](https://www.cve.org/CVERecord?id=CVE-2023-52267)
 * [MicroHTTPServer off-by-one global buffer overflow in _ParseHeader at lib/server.c (CVE-2023-51771)](https://www.cve.org/CVERecord?id=CVE-2023-51771)
