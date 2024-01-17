@@ -42,6 +42,10 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
+* [Cherry HTTP Server Out-of-bounds read in static const char *get_file_type(const char *extension) at http.c](https://github.com/hayyp/cherry/issues/2)
+* [Lotos HTTP Server Use-after-free in static inline char *buffer_end(const buffer_t *pb) at buffer.h](https://github.com/chendotjs/lotos/issues/8)
+* [Pico HTTP Server Null Pointer Dereference void respond(int slot) at httpd.c](https://github.com/foxweb/pico/issues/32)
+* [Pico HTTP Server Off-by-one buffer overflow in void respond(int slot) at httpd.c](https://github.com/foxweb/pico/issues/33)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
