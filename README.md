@@ -6,6 +6,10 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [Cherry HTTP Server Out-of-bounds read in static const char *get_file_type(const char *extension) at http.c (CVE-2024-24341)](https://www.cve.org/CVERecord?id=CVE-2024-24341)
+* [Lotos HTTP Server Use-after-free in static inline char *buffer_end(const buffer_t *pb) at buffer.h (CVE-2024-24343)](https://www.cve.org/CVERecord?id=CVE-2024-24343)
+* [Pico HTTP Server Null Pointer Dereference void respond(int slot) at httpd.c (CVE-2024-24340)](https://www.cve.org/CVERecord?id=CVE-2024-24340)
+* [Pico HTTP Server Off-by-one buffer overflow in void respond(int slot) at httpd.c (CVE-2024-24342)](https://www.cve.org/CVERecord?id=CVE-2024-24342)
 * [Cherry HTTP server remote stack buffer overflow vulnerability in handle_request() at http.c (CVE-2024-22086)](https://www.cve.org/CVERecord?id=CVE-2024-22086)
 * [Pico HTTP server remote stack buffer overflow in void route() at main.c (CVE-2024-22087)](https://www.cve.org/CVERecord?id=CVE-2024-22087)
 * [Lotos HTTP server use-after-free in static inline size_t buffer_avail(const buffer_t *pb) at buffer.h (CVE-2024-22088)](https://www.cve.org/CVERecord?id=CVE-2024-22088)
@@ -42,10 +46,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [Cherry HTTP Server Out-of-bounds read in static const char *get_file_type(const char *extension) at http.c](https://github.com/hayyp/cherry/issues/2)
-* [Lotos HTTP Server Use-after-free in static inline char *buffer_end(const buffer_t *pb) at buffer.h](https://github.com/chendotjs/lotos/issues/8)
-* [Pico HTTP Server Null Pointer Dereference void respond(int slot) at httpd.c](https://github.com/foxweb/pico/issues/32)
-* [Pico HTTP Server Off-by-one buffer overflow in void respond(int slot) at httpd.c](https://github.com/foxweb/pico/issues/33)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
