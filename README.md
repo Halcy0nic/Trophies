@@ -46,6 +46,10 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
+* [Lambda Calculus Interpreter Stack Buffer Overflow in int execSystemCmd(TERM *t) at run.c, line 224](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in void termRemoveOper(TERM *t) at termproc.c, line 632](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in static TERM fix_precedence(TERM op) at parser.c, line 95](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in TERM* create_bracket(TERM *t) at parser.c, line 162](https://github.com/chatziko/lci/issues/14)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
