@@ -6,6 +6,10 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [Lambda Calculus Interpreter Stack Buffer Overflow in int execSystemCmd(TERM *t) at run.c, line 224 (CVE-2024-27543)](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in void termRemoveOper(TERM *t) at termproc.c, line 632 (CVE-2024-27542)](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in static TERM fix_precedence(TERM op) at parser.c, line 95 (CVE-2024-27540)](https://github.com/chatziko/lci/issues/14)
+* [Lambda Calculus Interpreter Invalid Pointer Dereference in TERM* create_bracket(TERM *t) at parser.c, line 162 (CVE-2024-27541)](https://github.com/chatziko/lci/issues/14)
 * [Cherry HTTP Server Out-of-bounds read in static const char *get_file_type(const char *extension) at http.c (CVE-2024-24341)](https://www.cve.org/CVERecord?id=CVE-2024-24341)
 * [Lotos HTTP Server Use-after-free in static inline char *buffer_end(const buffer_t *pb) at buffer.h (CVE-2024-24343)](https://www.cve.org/CVERecord?id=CVE-2024-24343)
 * [Pico HTTP Server Null Pointer Dereference void respond(int slot) at httpd.c (CVE-2024-24340)](https://www.cve.org/CVERecord?id=CVE-2024-24340)
@@ -46,10 +50,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [Lambda Calculus Interpreter Stack Buffer Overflow in int execSystemCmd(TERM *t) at run.c, line 224](https://github.com/chatziko/lci/issues/14)
-* [Lambda Calculus Interpreter Invalid Pointer Dereference in void termRemoveOper(TERM *t) at termproc.c, line 632](https://github.com/chatziko/lci/issues/14)
-* [Lambda Calculus Interpreter Invalid Pointer Dereference in static TERM fix_precedence(TERM op) at parser.c, line 95](https://github.com/chatziko/lci/issues/14)
-* [Lambda Calculus Interpreter Invalid Pointer Dereference in TERM* create_bracket(TERM *t) at parser.c, line 162](https://github.com/chatziko/lci/issues/14)
 * [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
