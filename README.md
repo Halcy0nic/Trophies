@@ -6,6 +6,13 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436 (CVE-2024-30898)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static void print_stack(forth_t *o, FILE *out, forth_cell_t *S, forth_cell_t f) at libforth.c, line 1481 (CVE-2024-30899)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367 (CVE-2024-30900)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306 (CVE-2024-30901)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds write in static forth_cell_t compile(forth_t *o, forth_cell_t code, const char *str, forth_cell_t compiling, forth_cell_t hide) at libforth.c, line 1241 (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int forth_get_char(forth_t *o) at libforth.c (CVE-2024-30907)](https://github.com/howerj/libforth/issues/5)
 * [Lambda Calculus Interpreter Stack Buffer Overflow in int execSystemCmd(TERM *t) at run.c, line 224 (CVE-2024-27543)](https://github.com/chatziko/lci/issues/14)
 * [Lambda Calculus Interpreter Invalid Pointer Dereference in void termRemoveOper(TERM *t) at termproc.c, line 632 (CVE-2024-27542)](https://github.com/chatziko/lci/issues/14)
 * [Lambda Calculus Interpreter Invalid Pointer Dereference in static TERM fix_precedence(TERM op) at parser.c, line 95 (CVE-2024-27540)](https://github.com/chatziko/lci/issues/14)
@@ -50,23 +57,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [Libforth v4.0 Null pointer dereference in int forth_run(forth_t *o) at libforth/libforth.c, line 2615](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2666](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2623](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds write in int forth_run(forth_t *o) libforth/libforth.c, line 2725](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2721](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2716](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2665](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2362](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c, line 2730](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Invalid free in int forth_run(forth_t *o) libforth/libforth.c, line 2750](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in static void print_stack(forth_t *o, FILE *out, forth_cell_t *S, forth_cell_t f) at libforth.c, line 1481](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in static int forth_get_char(forth_t *o) at libforth.c, line 1091](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds write in static forth_cell_t compile(forth_t *o, forth_cell_t code, const char *str, forth_cell_t compiling, forth_cell_t hide) at libforth.c, line 1241](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Invalid free in int forth_run(forth_t *o) at libforth.c, line 2745](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306](https://github.com/howerj/libforth/issues/5)
 * [SimpleNetwork TCP Server Global Buffer Overflow](https://github.com/kashimAstro/SimpleNetwork/issues/23)
 * [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
