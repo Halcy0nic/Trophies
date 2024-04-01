@@ -11,7 +11,7 @@ Trophy list of zero-day vulnerabilities discovered
 * [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367 (CVE-2024-30900)](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306 (CVE-2024-30901)](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds write in static forth_cell_t compile(forth_t *o, forth_cell_t code, const char *str, forth_cell_t compiling, forth_cell_t hide) at libforth.c, line 1241 (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
-* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c (CVE-2024-30903)](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static int forth_get_char(forth_t *o) at libforth.c (CVE-2024-30907)](https://github.com/howerj/libforth/issues/5)
 * [Lambda Calculus Interpreter Stack Buffer Overflow in int execSystemCmd(TERM *t) at run.c, line 224 (CVE-2024-27543)](https://github.com/chatziko/lci/issues/14)
 * [Lambda Calculus Interpreter Invalid Pointer Dereference in void termRemoveOper(TERM *t) at termproc.c, line 632 (CVE-2024-27542)](https://github.com/chatziko/lci/issues/14)
