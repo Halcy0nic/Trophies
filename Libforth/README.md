@@ -4,6 +4,16 @@ While I was executing a few fuzz tests for Libforth, I discovered multiple memor
 $ forth [name of reproduction file]
 ```
 
+## CVEs Assigned to These Vulnerabilities:
+
+* [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436 (CVE-2024-30898)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static void print_stack(forth_t *o, FILE *out, forth_cell_t *S, forth_cell_t f) at libforth.c, line 1481 (CVE-2024-30899)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367 (CVE-2024-30900)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int match(forth_cell_t *m, forth_cell_t pwd, const char *s) at libforth.c, line 1306 (CVE-2024-30901)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds write in static forth_cell_t compile(forth_t *o, forth_cell_t code, const char *str, forth_cell_t compiling, forth_cell_t hide) at libforth.c, line 1241 (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in int forth_run(forth_t *o) at libforth/libforth.c (CVE-2024-30902)](https://github.com/howerj/libforth/issues/5)
+* [Libforth v4.0 Out of bounds read in static int forth_get_char(forth_t *o) at libforth.c (CVE-2024-30907)](https://github.com/howerj/libforth/issues/5)
+
 ### After triaging all of the crashes, I can verify that there are 17 separate and unique issues at the following locations:
 
 ## Out of bounds read (CWE-125) in *static int match(forth_cell_t \*m, forth_cell_t pwd, const char \*s)* at libforth.c, line 1306 when attempting to execute 'forth_cell_t len = WORD_LENGTH(m\[pwd + 1\]);':
