@@ -6,6 +6,7 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## CVEs
 
+* [SimpleNetwork TCP Server Global Buffer Overflow (CVE-2023-52729)](https://www.cve.org/CVERecord?id=CVE-2023-52729)
 * [Libforth v4.0 Out of bounds read in static void check_is_asciiz(jmp_buf *on_error, char *s, forth_cell_t end) libforth/libforth.c, line 1436 (CVE-2024-30898)](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Out of bounds read in static void print_stack(forth_t *o, FILE *out, forth_cell_t *S, forth_cell_t f) at libforth.c, line 1481 (CVE-2024-30899)](https://github.com/howerj/libforth/issues/5)
 * [Libforth v4.0 Stack-based buffer overflow in static int print_cell(forth_t *o, FILE *out, forth_cell_t u) at libforth.c, line 1367 (CVE-2024-30900)](https://github.com/howerj/libforth/issues/5)
@@ -57,7 +58,6 @@ Trophy list of zero-day vulnerabilities discovered
 
 ## Discovered Vulnerabilities
 
-* [SimpleNetwork TCP Server Global Buffer Overflow](https://github.com/kashimAstro/SimpleNetwork/issues/23)
 * [N-Prolog v1.94 Out-of-bounds read in add_data() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Out-of-bounds read in prove_all() at main.c](https://github.com/sasagawa888/nprolog/issues/78)
 * [N-Prolog v1.94 Stack exhaustion in deref() at data.c](https://github.com/sasagawa888/nprolog/issues/78)
